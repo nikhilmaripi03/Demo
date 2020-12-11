@@ -1,0 +1,9 @@
+global:
+  runner:
+    containers:
+    - image: hello-world
+tasks:
+  test:
+    steps:
+    - run: docker run
+  
