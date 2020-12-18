@@ -1,20 +1,19 @@
 global:
-  runner:
-    tasks:
-      Compile:
-        steps:
-        - run: echo "Compiled Successfully"
+  tasks:
+    Compile:
+      steps:
+      - run: echo "Compiled Successfully"
 
-      JUnit:
-        steps:
-        - run: echo "JUnit passed Succesfully"
+    JUnit:
+      steps:
+      - run: echo "JUnit passed Succesfully"
 
-      Quality-Gate:
-        steps:
-        - run: echo "Quality Gate passed Successfully"
+    Quality-Gate:
+      steps:
+      - run: echo "Quality Gate passed Successfully"
 
-      Deploy:
-        steps:
-        - run: echo "Pass"
+    Deploy:
+      steps:
+      - run: echo "Pass"
 
-  
+
