@@ -1,17 +1,21 @@
 tasks:
   Compile:
+    runner: ruby:2.6
     steps:
     - run: echo Compiled Successfully
 
   JUnit:
+    runner: ruby:2.6
     steps:
     - run: echo JUnit passed Succesfully
 
   Quality-Gate:
+    runner: ruby:2.6
     steps:
     - run: echo Quality Gate passed Successfully
 
   Deploy:
+    runner: ruby:2.6
     steps:
     - run: echo Pass
 
