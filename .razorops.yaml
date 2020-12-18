@@ -1,6 +1,18 @@
-global:
-  runner:
-    containers:
-    - image: hello-world
+tasks:
+  Compile:
+    steps:
+    - run: echo "Compiled Successfully"
+    
+  JUnit:
+    steps:
+    - run: echo "JUnit passed Succesfully"
+    
+  Quality-Gate:
+    steps:
+    - run: echo "Quality Gate passed Successfully"
+    
+  Deploy:
+    steps:
+    - run: echo "Pass"
 
   
