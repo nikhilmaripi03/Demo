@@ -1,15 +1,14 @@
 tasks:
   execute-tests:
     runner:
+      os_image: ubuntu
       containers:
-      - image: razorci/ruby
-      - image: postgres ## db service
+      - image: redis # cache service
+      - image: postgres # db service
         environment:
         - POSTGRES_DB=test
-      - image: redis ## cache service
     steps:
     - commands:
       # Wait for the containers to be healthly using dockerize CLI
       # dockerize: https://github.com/jwilder/dockerize
       - dockerize -wait tcp://localhost:5432 -wait tcp://localhost:6379
-
