@@ -1,3 +1,8 @@
+version: v2
+global:
+  runner:
+    os_image: ubuntu
+    
 tasks:
   build-image:
     type: build
@@ -7,7 +12,6 @@ tasks:
         tags: ["${CI_COMMIT_SHA}", "latest"]
 
   unit-test:
-    type: junit
     runner:
       containers:
       - image: razorci/ruby:2
