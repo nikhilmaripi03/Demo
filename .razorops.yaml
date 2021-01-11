@@ -1,5 +1,6 @@
 tasks:
   execute-tests:
+    type: build
     runner:
       os_image: ubuntu
       containers:
