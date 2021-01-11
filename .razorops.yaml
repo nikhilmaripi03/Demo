@@ -1,11 +1,13 @@
 tasks:
   build-image:
+    type: build
     steps:
     - docker/build:
         image: razorci/ruby:2
         tags: ["${CI_COMMIT_SHA}", "latest"]
 
   unit-test:
+    type: test
     runner:
       containers:
       - image: razorci/ruby:2
