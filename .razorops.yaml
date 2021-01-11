@@ -7,7 +7,7 @@ tasks:
         tags: ["${CI_COMMIT_SHA}", "latest"]
 
   unit-test:
-    type: test
+    type: junit
     runner:
       containers:
       - image: razorci/ruby:2
