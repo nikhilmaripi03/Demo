@@ -1,29 +1,15 @@
-version: v2
-global:
-  runner:
-    os_image: ubuntu
-    
 tasks:
-  build-image:
-    type: build
-    steps:
-    - docker/build:
-        image: razorci/ruby:2
-        tags: ["${CI_COMMIT_SHA}", "latest"]
-
-  unit-test:
+  execute-tests:
     runner:
       containers:
-      - image: razorci/ruby:2
+      - image: razorci/ruby
+      - image: postgres ## db service
         environment:
-        - DB_URL=postgres://root:secret@localhost/test
-        - RAILS_ENV=test
-      - image: mysql:5.6
-        environment:
-        - MYSQL_ROOT_PASSWORD=secret
-        - MYSQL_DATABASE=test
-        - MYSQL_ROOT_HOST=%
+        - POSTGRES_DB=test
+      - image: redis ## cache service
     steps:
-    - run: bundle exec rspec
-
+    - commands:
+      # Wait for the containers to be healthly using dockerize CLI
+      # dockerize: https://github.com/jwilder/dockerize
+      - dockerize -wait tcp://localhost:5432 -wait tcp://localhost:6379
 
