@@ -1,6 +1,6 @@
 tasks:
   execute-tests:
-    type: build
+    type: service
     runner:
       os_image: ubuntu
       containers:
